@@ -43,7 +43,8 @@ plaintext_samples = plaintext_samples.reshape((num_samples, text_length, 1))
 
 # Step 4: Train the model
 history = model.fit(ciphertext_samples, plaintext_samples, epochs=epochs, batch_size=32, validation_split=0.2)
-
+# Save the model
+model.save('trained_model.h5')
 # Step 5: Test the model
 # Generate a new sample to test the decryption
 test_plaintext = generate_plaintext_samples(1, text_length)
