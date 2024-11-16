@@ -6,7 +6,7 @@ from tensorflow.keras import layers, models
 num_samples = 100000  # Number of samples for training
 text_length = 8     # Length of each text (in characters)
 key = 42            # XOR key for encryption
-epochs = 100        # Increased epochs for more thorough training
+epochs = 10        # Increased epochs for more thorough training
 
 # Step 1: Generate random plaintext data
 def generate_plaintext_samples(num_samples, text_length):
@@ -52,7 +52,7 @@ test_ciphertext = encrypt_xor(test_plaintext, key) / 255.0  # Normalize for inpu
 test_ciphertext = test_ciphertext.reshape((1, text_length, 1))
 
 # Predict the decrypted text
-predicted_plaintext = model.predict(test_ciphertext)
+predicted_plaintext = model.predict(test_ciphertext)  
 
 # Convert predictions to integer format for comparison
 predicted_plaintext = np.round(predicted_plaintext * 255).astype(int)
